@@ -11,14 +11,14 @@ import click
 
 import tornado.ioloop
 
-from pinnwand import utility
+from pinnwand import utility, settings
 from pinnwand import database
 
 from pinnwand.http import make_application
 
 
 log = logging.getLogger(__name__)
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=getattr(logging, settings.LOG_LEVEL))
 
 
 @click.group()
